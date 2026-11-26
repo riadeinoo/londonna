@@ -10,3 +10,26 @@ let articles = [
   { id: 9, titre: "Collier main de Fatma", categorie: "collier", prix: 980, stock: 7, date: "2026-08-05" },
   { id: 10, titre: "Créoles argent", categorie: "boucles", prix: 720, stock: 9, date: "2026-10-18" }
 ];
+
+
+// 1. Quels articles sont des bagues ? -> filter
+const bagues = articles.filter(article => article.categorie === "bague");
+console.log("1. Bagues :", bagues);
+
+// 2. Quels sont les titres des articles en rupture de stock (stock === 0) ? -> filter puis map
+const titresRupture = articles
+  .filter(article => article.stock === 0)
+  .map(article => article.titre);
+console.log("2. Titres en rupture de stock :", titresRupture);
+
+// 3. Quel est l'article dont l'id vaut 7 ? -> find
+const articleId7 = articles.find(article => article.id === 7);
+console.log("3. Article id 7 :", articleId7);
+
+// 4. Y a-t-il au moins un article à plus de 5 000 DH ? -> some
+const auMoinsUnCher = articles.some(article => article.prix > 5000);
+console.log("4. Au moins un article > 5000 DH :", auMoinsUnCher);
+
+// 5. Tous les articles sont-ils en stock (stock > 0) ? -> every
+const tousEnStock = articles.every(article => article.stock > 0);
+console.log("5. Tous en stock :", tousEnStock);
